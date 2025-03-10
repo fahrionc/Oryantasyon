@@ -1,0 +1,40 @@
+﻿@using EntityLayer.Concrete
+@model List<Car>
+@{
+    ViewBag.Title = "GetCarList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+    <h3 class="pt-3 pl-3">Araç Bilgileri Listesi</h3>
+    <br />
+    <table class="table table-bordered table-hover">
+        <tr class="text-center">
+            <th>#</th>
+            <th>Araç Adı</th>
+            <th>Araç Plakası</th>
+            <th>Aktif Çalışma Süresi(sa)</th>
+            <th>Bakım Süresi(sa)</th>
+            <th>Boşta Bekleme Süresi(sa)</th>
+            <th>Araç Sil</th>
+            <th>Araç Güncelle</th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr class="text-center">
+                <th>@item.CarID</th>
+                <td>@item.CarName</td>
+                <td>@item.CarPlate</td>
+                <td>@item.ActiveWorkTime</td>
+                <td>@item.MaintenanceTime</td>
+                <td>@item.IdleTime</td>
+                <td><a href="/AdminCar/DeleteCar/@item.CarID" class="btn btn-danger">Sil</a></td>
+                <td><a href="/AdminCar/EditCar/@item.CarID" class="btn btn-warning">Güncelle</a></td>
+            </tr>
+        }
+    </table>
+    <a href="/AdminCar/AddCar/" class="btn btn-success">Yeni Araç Ekle</a>
+</div>
+

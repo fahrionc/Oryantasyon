@@ -1,0 +1,27 @@
+﻿@using EntityLayer.Concrete
+@model List<Car>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+    <h3 class="d-flex justify-content-center align-items-center pt-3">Araçlar</h3>
+    <br />
+    <table class="table table-bordered table-hover">
+        <tr class="text-center">
+            <th>#</th>
+            <th>Araç Adı</th>
+            <th>Araç Plakası</th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr class="text-center">
+                <th>@item.CarID</th>
+                <td>@item.CarName</td>
+                <td>@item.CarPlate</td>
+            </tr>
+        }
+    </table>
+</div>
