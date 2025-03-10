@@ -57,6 +57,10 @@
     <Compile Include="Concrete\Repositories\CarRepository.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
     <Compile Include="EntityFramework\EfCarDal.cs" />
+    <Compile Include="Migrations\202503102038313_mig_admin_role_add_table.cs" />
+    <Compile Include="Migrations\202503102038313_mig_admin_role_add_table.Designer.cs">
+      <DependentUpon>202503102038313_mig_admin_role_add_table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -70,7 +74,11 @@
       <Name>EntityLayer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202503102038313_mig_admin_role_add_table.resx">
+      <DependentUpon>202503102038313_mig_admin_role_add_table.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

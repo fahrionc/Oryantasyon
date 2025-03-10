@@ -14,6 +14,7 @@ namespace Oryantasyon.Controllers
     public class AdminCarController : Controller
     {
         CarManager cm = new CarManager(new EfCarDal());
+        [Authorize]
         public ActionResult Index()
         {
             var categoryvalues = cm.GetList();
