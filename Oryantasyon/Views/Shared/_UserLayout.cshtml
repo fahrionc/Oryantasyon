@@ -57,53 +57,53 @@
                             </ul>
                         </li>
                         @*@if (User.IsInRole("A"))
-                        {*@
-                            <li class="nav-item has-treeview">
-                                <a href="@Url.Action("GetCarList", "AdminCar")" class="nav-link">
+                            {*@
+                        <li class="nav-item has-treeview">
+                            <a href="@Url.Action("GetCarList", "AdminCar")" class="nav-link">
 
-                                    <i class="nav-icon fas fa-table"></i>
-                                    <p>
-                                        Tablolar
-                                    </p>
-                                </a>
-                            </li>
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>
+                                    Tablolar
+                                </p>
+                            </a>
+                        </li>
 
-                            <li class="nav-item has-treeview">
-                                <a href="@Url.Action("Index", "AdminCar")" class="nav-link">
+                        <li class="nav-item has-treeview">
+                            <a href="@Url.Action("Index", "AdminCar")" class="nav-link">
 
-                                    <i class="nav-icon fas fa-edit"></i>
-                                    <p>
-                                        Kullanıcılar
-                                    </p>
-                                </a>
-                            </li>
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>
+                                    Kullanıcılar
+                                </p>
+                            </a>
+                        </li>
 
-                            <li class="nav-item has-treeview">
-                                <a href="@Url.Action("Index", "AdminCar")" class="nav-link">
+                        <li class="nav-item has-treeview">
+                            <a href="@Url.Action("Index", "AdminCar")" class="nav-link">
 
-                                    <i class="nav-icon fas fa-user"></i>
-                                    <p>
-                                        Admin
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item has-treeview">
-                                <a href="@Url.Action("Index", "AdminCar")" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>
+                                    Admin
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="@Url.Action("Index", "AdminCar")" class="nav-link">
 
-                                    <i class="nav-icon fas fa-unlock"></i>
-                                    <p>
-                                        Yetkilendirme
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item has-treeview">
-                                <a href="@Url.Action("Page404", "ErrorPage")" class="nav-link">
-                                    <i class="nav-icon fas fa-not-equal"></i>
-                                    <p>
-                                        Hata Sayfaları
-                                    </p>
-                                </a>
-                            </li>
+                                <i class="nav-icon fas fa-unlock"></i>
+                                <p>
+                                    Yetkilendirme
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="@Url.Action("Page404", "ErrorPage")" class="nav-link">
+                                <i class="nav-icon fas fa-not-equal"></i>
+                                <p>
+                                    Hata Sayfaları
+                                </p>
+                            </a>
+                        </li>
                         @*}*@
                         <li class="nav-item has-treeview">
                             <a href="@Url.Action("Index", "AdminCar")" class="nav-link">
@@ -122,6 +122,44 @@
             @RenderBody()
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function calculateIdleTime() {
+                let activeInput = document.getElementById("ActiveWorkTime");
+                let maintenanceInput = document.getElementById("MaintenanceTime");
+                let idleInput = document.getElementById("IdleTime");
+
+                let activeWorkTime = parseFloat(activeInput.value.replace(",", ".")) || 0;
+                let maintenanceTime = parseFloat(maintenanceInput.value.replace(",", ".")) || 0;
+                let totalHoursInWeek = 7 * 24; // Haftalık toplam saat (168 saat)
+
+                // Eğer toplam 168 saati aşarsa, girişleri sıfırla ve uyarı ver
+                if (activeWorkTime + maintenanceTime > totalHoursInWeek) {
+                    alert("Toplam saat 168'i geçemez! Lütfen değerleri kontrol edin.");
+
+                    // Önceki geçerli değere dön
+                    activeInput.value = activeInput.dataset.oldValue || "";
+                    maintenanceInput.value = maintenanceInput.dataset.oldValue || "";
+
+                    return;
+                }
+
+                // Boşta bekleme süresini hesapla
+                let idleTime = totalHoursInWeek - (activeWorkTime + maintenanceTime);
+
+                // **Virgüllü format için noktayı virgüle çeviriyoruz**
+                idleInput.value = idleTime >= 0 ? idleTime.toFixed(2).replace(".", ",") : "0,00";
+
+                // Güncel değeri hafızada sakla
+                activeInput.dataset.oldValue = activeInput.value;
+                maintenanceInput.dataset.oldValue = maintenanceInput.value;
+            }
+
+            // Input değişikliklerini dinleyerek hesaplamayı otomatik yap
+            document.getElementById("ActiveWorkTime").addEventListener("input", calculateIdleTime);
+            document.getElementById("MaintenanceTime").addEventListener("input", calculateIdleTime);
+        });
+    </script>
     <script src="~/AdminTheme/plugins/jquery/jquery.min.js"></script>
     <script src="~/AdminTheme/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="~/AdminTheme/dist/js/adminlte.js"></script>

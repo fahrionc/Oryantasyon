@@ -2003,7 +2003,6 @@
     <Content Include="Content\error-404\index.html" />
     <Content Include="Content\error-404\readme.txt" />
     <Content Include="Content\css\style.css" />
-    <Content Include="Content\js\JQuery\Login.js" />
     <Content Include="Content\login_v3\css\bootstrap.min.css" />
     <Content Include="Content\login_v3\css\bootstrap\mixins\_border-radius.css" />
     <Content Include="Content\login_v3\css\bootstrap\mixins\_reset-text.css" />

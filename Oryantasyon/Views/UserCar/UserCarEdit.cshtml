@@ -12,17 +12,20 @@
             @Html.Label("Arac ID")
             @Html.TextBoxFor(x => x.UserCarID, new { @class = "form-control" })
             <br />
+
             @Html.Label("Aktif Çalışma Süresi (sa)")
-            @Html.TextBoxFor(x => x.ActiveWorkTime, new { @class = "form-control" })
+            @Html.TextBoxFor(x => x.ActiveWorkTime, new { @class = "form-control", id = "ActiveWorkTime" })
             <br />
+
             @Html.Label("Bakım Süresi (sa)")
-            @Html.TextBoxFor(x => x.MaintenanceTime, new { @class = "form-control" })
+            @Html.TextBoxFor(x => x.MaintenanceTime, new { @class = "form-control", id = "MaintenanceTime" })
             <br />
+
             @Html.Label("Boşta Bekleme Süresi (sa)")
-            @Html.TextBoxFor(x => x.IdleTime, new { @class = "form-control" })
+            @Html.TextBoxFor(x => x.IdleTime, new { @class = "form-control", id = "IdleTime", @readonly = "readonly" })
             <br />
+
             <button class="btn btn-success">Güncelle</button>
         </div>
     }
 </div>
-
