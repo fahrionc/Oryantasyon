@@ -12,5 +12,8 @@ namespace DataAccsessLayer.Concrete
     {
         public DbSet<Car> Cars { get; set; }
         public DbSet<Admin> Admins { get; set; }
+        public DbSet<AdminCar> AdminCars { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserCar> UserCars { get; set; }
     }
 }

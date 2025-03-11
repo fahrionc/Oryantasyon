@@ -1,5 +1,4 @@
 ﻿using BusinessLayer.Abstract;
-using DataAccessLayer.Concrete.Repositories;
 using DataAccsessLayer.Abstract;
 using EntityLayer.Concrete;
 using System.Collections.Generic;

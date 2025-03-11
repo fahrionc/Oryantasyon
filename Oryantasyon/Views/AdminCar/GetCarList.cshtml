@@ -1,8 +1,9 @@
 ﻿@using EntityLayer.Concrete
-@model List<Car>
+@model List<AdminCar>
 @{
     ViewBag.Title = "GetCarList";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
 }
 
 <link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
@@ -14,27 +15,21 @@
             <th>#</th>
             <th>Araç Adı</th>
             <th>Araç Plakası</th>
-            <th>Aktif Çalışma Süresi(sa)</th>
-            <th>Bakım Süresi(sa)</th>
-            <th>Boşta Bekleme Süresi(sa)</th>
             <th>Araç Sil</th>
             <th>Araç Güncelle</th>
 
         </tr>
         @foreach (var item in Model)
         {
+            count++;
             <tr class="text-center">
-                <th>@item.CarID</th>
+                <th>@count</th>
                 <td>@item.CarName</td>
                 <td>@item.CarPlate</td>
-                <td>@item.ActiveWorkTime</td>
-                <td>@item.MaintenanceTime</td>
-                <td>@item.IdleTime</td>
-                <td><a href="/AdminCar/DeleteCar/@item.CarID" class="btn btn-danger">Sil</a></td>
-                <td><a href="/AdminCar/EditCar/@item.CarID" class="btn btn-primary">Güncelle</a></td>
+                <td><a href="/AdminCar/AdminDeleteCar/@item.CarID" class="btn btn-danger">Sil</a></td>
+                <td><a href="/AdminCar/AdminEditCar/@item.CarID" class="btn btn-primary">Güncelle</a></td>
             </tr>
         }
     </table>
-    <a href="/AdminCar/AddCar/" class="btn btn-success">Yeni Araç Ekle</a>
+    <a href="/AdminCar/AdminAddCar/" class="btn btn-success">Yeni Araç Ekle</a>
 </div>
-

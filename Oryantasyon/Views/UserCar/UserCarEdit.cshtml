@@ -1,0 +1,28 @@
+﻿@model EntityLayer.Concrete.UserCar
+@{
+    ViewBag.Title = "UserCarEdit";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<div class="container">
+    <h1 class="pt-3 pl-3">Araç Güncelleme Sayfası</h1>
+    <br />
+    @using (Html.BeginForm("UserCarEdit", "UserCar", FormMethod.Post))
+    {
+        <div class="form-group pl-3">
+            @Html.Label("Arac ID")
+            @Html.TextBoxFor(x => x.UserCarID, new { @class = "form-control" })
+            <br />
+            @Html.Label("Aktif Çalışma Süresi (sa)")
+            @Html.TextBoxFor(x => x.ActiveWorkTime, new { @class = "form-control" })
+            <br />
+            @Html.Label("Bakım Süresi (sa)")
+            @Html.TextBoxFor(x => x.MaintenanceTime, new { @class = "form-control" })
+            <br />
+            @Html.Label("Boşta Bekleme Süresi (sa)")
+            @Html.TextBoxFor(x => x.IdleTime, new { @class = "form-control" })
+            <br />
+            <button class="btn btn-success">Güncelle</button>
+        </div>
+    }
+</div>
+

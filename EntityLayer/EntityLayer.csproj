@@ -52,7 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Concrete\Admin.cs" />
+    <Compile Include="Concrete\AdminCar.cs" />
     <Compile Include="Concrete\Car.cs" />
+    <Compile Include="Concrete\User.cs" />
+    <Compile Include="Concrete\UserCar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

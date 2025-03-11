@@ -1,0 +1,25 @@
+﻿@model EntityLayer.Concrete.AdminCar
+@{
+    ViewBag.Title = "AdminAddCar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <h1 class="pt-3 pl-3">Araç Ekleme Sayfası</h1>
+    <br />
+    @using (Html.BeginForm("AdminAddCar", "AdminCar", FormMethod.Post))
+    {
+        <div class="form-group pl-3">
+            @Html.Label("Araç Adı")
+            @Html.TextBoxFor(x => x.CarName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.CarName)
+            <br /><br />
+            @Html.Label("Araç Plakası")
+            @Html.TextBoxFor(x => x.CarPlate, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.CarPlate)
+            <br /><br />
+            <button class="btn btn-success">Kaydet</button>
+        </div>
+    }
+</div>
+

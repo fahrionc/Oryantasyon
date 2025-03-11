@@ -1,3 +1,8 @@
+﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
+using DataAccsessLayer.EntityFramework;
+using EntityLayer.Concrete;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,32 +13,26 @@ namespace Oryantasyon.Controllers
 {
     public class AdminCarController : Controller
     {
-        CarManager cm = new CarManager(new EfCarDal());
-        [Authorize]
-        public ActionResult Index()
-        {
-            var categoryvalues = cm.GetList();
-            return View(categoryvalues);
-        }
+        AdminCarManager acm = new AdminCarManager(new EfAdminCarDal());
         public ActionResult GetCarList()
         {
-            var categoryvalues = cm.GetList();
-            return View(categoryvalues);
+            var carvalues = acm.GetList();
+            return View(carvalues);
         }
 
         [HttpGet]
-        public ActionResult AddCar()
+        public ActionResult AdminAddCar()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult AddCar(Car p)
+        public ActionResult AdminAddCar(AdminCar p)
         {
-            CarValidatior carValidator = new CarValidatior();
-            ValidationResult results = carValidator.Validate(p);
+            AdminCarValidator adminCarValidator = new AdminCarValidator();
+            ValidationResult results = adminCarValidator.Validate(p);
             if (results.IsValid)
             {
-                cm.CarAdd(p);
+                acm.AdminCarAdd(p);
                 return RedirectToAction("GetCarList");
             }
             else
@@ -45,23 +44,23 @@ namespace Oryantasyon.Controllers
             }
             return View();
         }
-        public ActionResult DeleteCar(int id)
+        public ActionResult AdminDeleteCar(int id)
         {
-            var carvalue = cm.GetByID(id);
-            cm.CarDelete(carvalue);
+            var adminCarValue = acm.GetByID(id);
+            acm.AdminCarDelete(adminCarValue);
             return RedirectToAction("GetCarList");
         }
 
         [HttpGet]
-        public ActionResult EditCar(int id)
+        public ActionResult AdminEditCar(int id)
         {
-            var carvalues = cm.GetByID(id);
-            return View(carvalues);
+            var adminCarValue = acm.GetByID(id);
+            return View(adminCarValue);
         }
         [HttpPost]
-        public ActionResult EditCar(Car p)
+        public ActionResult AdminEditCar(AdminCar p)
         {
-            cm.CarUpdate(p);
+            acm.AdminCarAdd(p);
             return RedirectToAction("GetCarList");
         }
     }

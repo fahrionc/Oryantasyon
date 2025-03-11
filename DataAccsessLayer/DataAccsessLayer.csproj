@@ -51,15 +51,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IAdminCarDal.cs" />
     <Compile Include="Abstract\ICarDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\IUserCarDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\CarRepository.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
+    <Compile Include="EntityFramework\EfAdminCarDal.cs" />
     <Compile Include="EntityFramework\EfCarDal.cs" />
+    <Compile Include="EntityFramework\EfUserCarDal.cs" />
     <Compile Include="Migrations\202503102038313_mig_admin_role_add_table.cs" />
     <Compile Include="Migrations\202503102038313_mig_admin_role_add_table.Designer.cs">
       <DependentUpon>202503102038313_mig_admin_role_add_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202503102334358_mig_add_user_table.cs" />
+    <Compile Include="Migrations\202503102334358_mig_add_user_table.Designer.cs">
+      <DependentUpon>202503102334358_mig_add_user_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202503110031413_mig_user_car.cs" />
+    <Compile Include="Migrations\202503110031413_mig_user_car.Designer.cs">
+      <DependentUpon>202503110031413_mig_user_car.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202503110057524_add_mig_admin_car.cs" />
+    <Compile Include="Migrations\202503110057524_add_mig_admin_car.Designer.cs">
+      <DependentUpon>202503110057524_add_mig_admin_car.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,6 +93,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202503102038313_mig_admin_role_add_table.resx">
       <DependentUpon>202503102038313_mig_admin_role_add_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202503102334358_mig_add_user_table.resx">
+      <DependentUpon>202503102334358_mig_add_user_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202503110031413_mig_user_car.resx">
+      <DependentUpon>202503110031413_mig_user_car.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202503110057524_add_mig_admin_car.resx">
+      <DependentUpon>202503110057524_add_mig_admin_car.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

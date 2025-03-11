@@ -29,7 +29,30 @@ namespace Oryantasyon.Controllers
             }
             else
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index"); 
+            }
+        }
+
+        [HttpGet]
+        public ActionResult UserLogin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult UserLogin(User p)
+        {
+            Context c = new Context();
+            var userinfo = c.Users.FirstOrDefault(x => x.UserName == p.UserName && x.UserPassword == p.UserPassword);
+            if (userinfo != null)
+            {
+                FormsAuthentication.SetAuthCookie(userinfo.UserName, false);
+                Session["UserName"] = userinfo.UserName;
+                return RedirectToAction("Index", "AdminCar");
+            }
+            else
+            {
+                return RedirectToAction("UserLogin");
             }
         }
     }
