@@ -1,8 +1,3 @@
-﻿using BusinessLayer.Concrete;
-using BusinessLayer.ValidationRules;
-using DataAccsessLayer.EntityFramework;
-using EntityLayer.Concrete;
-using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +15,6 @@ namespace Oryantasyon.Controllers
             var categoryvalues = cm.GetList();
             return View(categoryvalues);
         }
-
         public ActionResult GetCarList()
         {
             var categoryvalues = cm.GetList();
