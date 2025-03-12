@@ -60,16 +60,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\IAdminCarService.cs" />
     <Compile Include="Abstract\ICarService.cs" />
-    <Compile Include="Abstract\IUserCarService.cs" />
-    <Compile Include="Concrete\AdminCarManager.cs" />
     <Compile Include="Concrete\CarManager.cs" />
-    <Compile Include="Concrete\UserCarManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValidationRules\AdminCarValidator.cs" />
     <Compile Include="ValidationRules\CarValidatior.cs" />
-    <Compile Include="ValidationRules\UserCarValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccsessLayer\DataAccsessLayer.csproj">

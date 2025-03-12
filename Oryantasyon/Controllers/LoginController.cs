@@ -25,7 +25,7 @@ namespace Oryantasyon.Controllers
             {
                 FormsAuthentication.SetAuthCookie(adminuserinfo.AdminUserName, false);
                 Session["AdminUserName"] = adminuserinfo.AdminUserName;
-                return RedirectToAction("Index", "AdminCar");
+                return RedirectToAction("GetCarList", "AdminCarAll");
             }
             else
             {
@@ -48,7 +48,7 @@ namespace Oryantasyon.Controllers
             {
                 FormsAuthentication.SetAuthCookie(userinfo.UserName, false);
                 Session["UserName"] = userinfo.UserName;
-                return RedirectToAction("Index", "AdminCar");
+                return RedirectToAction("Index", "User");
             }
             else
             {

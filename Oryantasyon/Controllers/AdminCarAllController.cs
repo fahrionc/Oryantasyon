@@ -11,10 +11,10 @@ using System.Web.Mvc;
 
 namespace Oryantasyon.Controllers
 {
+    [Authorize]
     public class AdminCarAllController : Controller
     {
         CarManager cm = new CarManager(new EfCarDal());
-        [Authorize]
         public ActionResult Index()
         {
             var carvalues = cm.GetList();

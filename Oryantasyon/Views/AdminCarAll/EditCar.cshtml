@@ -10,7 +10,7 @@
     {
         <div class="form-group pl-3">
             @Html.Label("Arac ID")
-            @Html.TextBoxFor(x => x.CarID, new { @class = "form-control" })
+            @Html.TextBoxFor(x => x.CarID, new { @class = "form-control",  @readonly = "readonly" })
             <br />
             @Html.Label("Arac Adı")
             @Html.TextBoxFor(x => x.CarName, new { @class = "form-control" })
@@ -19,13 +19,13 @@
             @Html.TextBoxFor(x => x.CarPlate, new { @class = "form-control" })
             <br />
             @Html.Label("Aktif Çalışma Süresi (sa)")
-            @Html.TextBoxFor(x => x.ActiveWorkTime, new { @class = "form-control" })
+            @Html.TextBoxFor(x => x.ActiveWorkTime, new { @class = "form-control", @readonly = "readonly" })
             <br />
             @Html.Label("Bakım Süresi (sa)")
-            @Html.TextBoxFor(x => x.MaintenanceTime, new { @class = "form-control" })
+            @Html.TextBoxFor(x => x.MaintenanceTime, new { @class = "form-control", @readonly = "readonly" })
             <br />
             @Html.Label("Boşta Bekleme Süresi (sa)")
-            @Html.TextBoxFor(x => x.IdleTime, new { @class = "form-control" })
+            @Html.TextBoxFor(x => x.IdleTime, new { @class = "form-control", @readonly = "readonly" })
             <br />
             <button class="btn btn-success">Güncelle</button>
         </div>

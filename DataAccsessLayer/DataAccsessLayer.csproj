@@ -51,16 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\IAdminCarDal.cs" />
     <Compile Include="Abstract\ICarDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
-    <Compile Include="Abstract\IUserCarDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\CarRepository.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
-    <Compile Include="EntityFramework\EfAdminCarDal.cs" />
     <Compile Include="EntityFramework\EfCarDal.cs" />
-    <Compile Include="EntityFramework\EfUserCarDal.cs" />
     <Compile Include="Migrations\202503102038313_mig_admin_role_add_table.cs" />
     <Compile Include="Migrations\202503102038313_mig_admin_role_add_table.Designer.cs">
       <DependentUpon>202503102038313_mig_admin_role_add_table.cs</DependentUpon>
@@ -88,6 +84,10 @@
     <Compile Include="Migrations\202503121124297_active.cs" />
     <Compile Include="Migrations\202503121124297_active.Designer.cs">
       <DependentUpon>202503121124297_active.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202503121211322_delete.cs" />
+    <Compile Include="Migrations\202503121211322_delete.Designer.cs">
+      <DependentUpon>202503121211322_delete.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -123,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202503121124297_active.resx">
       <DependentUpon>202503121124297_active.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202503121211322_delete.resx">
+      <DependentUpon>202503121211322_delete.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
