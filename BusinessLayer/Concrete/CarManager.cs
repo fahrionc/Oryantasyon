@@ -29,6 +29,11 @@ namespace BusinessLayer.Concrete
             _carDal.Update(car);
         }
 
+        public List<Car> GetActiveList()
+        {
+          return  _carDal.GetActiveCars();
+        }
+
         public Car GetByID(int id)
         {
             return _carDal.Get(x => x.CarID == id);

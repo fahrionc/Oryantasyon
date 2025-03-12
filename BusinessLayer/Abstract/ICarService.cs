@@ -10,6 +10,8 @@ namespace BusinessLayer.Abstract
     public interface ICarService
     {
         List<Car> GetList();
+        List<Car> GetActiveList();
+
         void CarAdd(Car car);
         Car GetByID(int id);
         void CarDelete(Car car);

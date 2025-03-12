@@ -12,24 +12,21 @@
     {
         <div class="form-group pl-3">
             @Html.Label("Araç Adı")
-            @Html.TextBoxFor(x => x.CarName, new {@class = "form-control" })
+            @Html.TextBoxFor(x => x.CarName, new { @class = "form-control" })
             @Html.ValidationMessageFor(x => x.CarName)
             <br /><br />
             @Html.Label("Araç Plakası")
             @Html.TextBoxFor(x => x.CarPlate, new { @class = "form-control" })
             @Html.ValidationMessageFor(x => x.CarPlate)
-            <br /><br />
-            @Html.Label("Aktif Çalışma Süresi(sa)")
-            @Html.TextBoxFor(x => x.ActiveWorkTime, new { @class = "form-control" })
-            @Html.ValidationMessageFor(x => x.ActiveWorkTime)
-            <br /><br />
-            @Html.Label("Bakım Süresi(sa)")
-            @Html.TextBoxFor(x => x.MaintenanceTime, new { @class = "form-control" })
-            @Html.ValidationMessageFor(x => x.MaintenanceTime)
-            <br /><br />
-            @Html.Label("Boşta Bekleme Süresi (sa)")
-            @Html.TextBoxFor(x => x.IdleTime, new { @class = "form-control" })
-            @Html.ValidationMessageFor(x => x.IdleTime)
+
+
+
+            <input type="hidden" name="ActiveWorkTime" value="1" />
+            <input type="hidden" name="MaintenanceTime" value="1" />
+            <input type="hidden" name="IdleTime" value="1" />
+
+
+
             <br /><br />
             <button class="btn btn-success">Kaydet</button>
         </div>

@@ -81,6 +81,14 @@
     <Compile Include="Migrations\202503111342103_mig_admin_user_id.Designer.cs">
       <DependentUpon>202503111342103_mig_admin_user_id.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202503121110347_123.cs" />
+    <Compile Include="Migrations\202503121110347_123.Designer.cs">
+      <DependentUpon>202503121110347_123.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202503121124297_active.cs" />
+    <Compile Include="Migrations\202503121124297_active.Designer.cs">
+      <DependentUpon>202503121124297_active.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -109,6 +117,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202503111342103_mig_admin_user_id.resx">
       <DependentUpon>202503111342103_mig_admin_user_id.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202503121110347_123.resx">
+      <DependentUpon>202503121110347_123.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202503121124297_active.resx">
+      <DependentUpon>202503121124297_active.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

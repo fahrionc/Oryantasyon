@@ -23,7 +23,7 @@ namespace Oryantasyon.Controllers
 
         public ActionResult GetCarList()
         {
-            var carvalues = cm.GetList();
+            var carvalues = cm.GetActiveList();
             return View(carvalues);
         }
 

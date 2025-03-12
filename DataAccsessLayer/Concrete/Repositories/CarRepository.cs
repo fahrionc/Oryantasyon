@@ -26,6 +26,11 @@ namespace DataAccessLayer.Concrete.Repositories
             throw new NotImplementedException();
         }
 
+        public List<Car> GetActiveCars()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Insert(Car p)
         {
             _object.Add(p);
