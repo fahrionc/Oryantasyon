@@ -16,7 +16,7 @@ namespace Oryantasyon
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "AdminCarAllController", action = "GetCarList", id = UrlParameter.Optional }
+                defaults: new { controller = "AdminCarAll", action = "GetCarList", id = UrlParameter.Optional }
             );
         }
     }
