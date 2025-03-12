@@ -1,5 +1,5 @@
 ﻿@using EntityLayer.Concrete
-@model List<UserCar>
+@model List<Car>
 
 @{
     ViewBag.Title = "UserCarGetList";
@@ -14,13 +14,12 @@
     <table class="table table-bordered table-hover">
         <tr class="text-center">
             <th>#</th>
-            <th>CarID</th>
             <th>Araç Adı</th>
             <th>Plaka</th>
             <th>Aktif Çalışma Süresi(sa)</th>
             <th>Bakım Süresi(sa)</th>
             <th>Boşta Bekleme Süresi(sa)</th>
-            <th>Araç Sil</th>
+            @*<th>Araç Sil</th>*@
             <th>Araç Güncelle</th>
         </tr>
         @foreach (var item in Model)
@@ -28,14 +27,13 @@
             count++;
             <tr class="text-center">
                 <th>@count</th>
-                <th>@item.AdminCar.CarID</th>
-                <td>@item.AdminCar.CarName</td>  @* AdminCar'dan araç adını çektik *@
-                <td>@item.AdminCar.CarPlate</td>  @* AdminCar'dan araç plakasını çektik *@
+                <td>@item.CarName</td>  @* AdminCar'dan araç adını çektik *@
+                <td>@item.CarPlate</td>  @* AdminCar'dan araç plakasını çektik *@
                 <td>@item.ActiveWorkTime</td>
                 <td>@item.MaintenanceTime</td>
                 <td>@item.IdleTime</td>
-                <td><a href="/UserCar/UserCarDelete/@item.UserCarID" class="btn btn-danger">Sil</a></td>
-                <td><a href="/UserCar/UserCarEdit/@item.UserCarID" class="btn btn-primary">Güncelle</a></td>
+                @*<td><a href="/UserCar/UserCarDelete/@item.CarID" class="btn btn-danger">Sil</a></td>*@
+                <td><a href="/UserCar/UserCarEdit/@item.CarID" class="btn btn-primary">Güncelle</a></td>
             </tr>
         }
     </table>

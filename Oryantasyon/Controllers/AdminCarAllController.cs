@@ -67,6 +67,7 @@ namespace Oryantasyon.Controllers
         [HttpPost]
         public ActionResult EditCar(Car p)
         {
+            p.IsActive = true;
             cm.CarUpdate(p);
             return RedirectToAction("GetCarList");
         }

@@ -16,12 +16,8 @@ namespace Oryantasyon.Controllers
         // GET: UserCar
         UserCarManager ucm = new UserCarManager(new EfUserCarDal());
         AdminCarManager acm = new AdminCarManager(new EfAdminCarDal());
-        public ActionResult UserCarGetList()
-        {
-            var carvalues = ucm.GetList();
-            return View(carvalues);
-        }
-
+        CarManager carmanager = new CarManager(new EfCarDal());
+       
         [HttpGet]
         public ActionResult UserAddCar()
         {
@@ -68,39 +64,61 @@ namespace Oryantasyon.Controllers
             }
             return RedirectToAction("UserCarGetList");
         }
+        //[HttpGet]
+        //public ActionResult UserCarEdit(int id)
+        //{
+        //    var carvalues = carmanager.GetByID(id);
+        //    if (carvalues == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+
+        //    //List<AdminCar> adminCars = acm.GetList();
+        //    //ViewBag.AdminCars = new SelectList(adminCars, "CarID", "CarName", carvalues.CarID);
+
+        //    return View(carvalues);
+        //}
+        //[HttpPost]
+        //public ActionResult UserCarEdit(UserCar p)
+        //{
+        //    UserCarValidator userCarValidator = new UserCarValidator();
+        //    ValidationResult result = userCarValidator.Validate(p);
+
+        //    if (result.IsValid)
+        //    {
+        //        ucm.UserCarUpdate(p);
+        //        return RedirectToAction("UserCarGetList");
+        //    }
+        //    List<AdminCar> adminCars = acm.GetList();
+        //    ViewBag.AdminCars = new SelectList(adminCars, "CarID", "CarName", p.CarID);
+        //    foreach (var item in result.Errors)
+        //    {
+        //        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+        //    }
+
+        //    return View(p);
+        //}
+
+        public ActionResult UserCarGetList()
+        {
+            var carvalues = carmanager.GetList();
+            return View(carvalues);
+        }
+
         [HttpGet]
         public ActionResult UserCarEdit(int id)
         {
-            var carvalues = ucm.GetByID(id);
-            if (carvalues == null)
-            {
-                return HttpNotFound();
-            }
-
-            List<AdminCar> adminCars = acm.GetList();
-            ViewBag.AdminCars = new SelectList(adminCars, "CarID", "CarName", carvalues.CarID);
-
+            var carvalues = carmanager.GetByID(id);
             return View(carvalues);
         }
         [HttpPost]
-        public ActionResult UserCarEdit(UserCar p)
+        public ActionResult UserCarEdit(Car p)
         {
-            UserCarValidator userCarValidator = new UserCarValidator();
-            ValidationResult result = userCarValidator.Validate(p);
-
-            if (result.IsValid)
-            {
-                ucm.UserCarUpdate(p);
-                return RedirectToAction("UserCarGetList");
-            }
-            List<AdminCar> adminCars = acm.GetList();
-            ViewBag.AdminCars = new SelectList(adminCars, "CarID", "CarName", p.CarID);
-            foreach (var item in result.Errors)
-            {
-                ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
-            }
-
-            return View(p);
+            p.IsActive = true;
+            carmanager.CarUpdate(p);
+            return RedirectToAction("UserCarGetList");
         }
+
+
     }
 }
