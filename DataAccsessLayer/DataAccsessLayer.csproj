@@ -77,6 +77,10 @@
     <Compile Include="Migrations\202503110057524_add_mig_admin_car.Designer.cs">
       <DependentUpon>202503110057524_add_mig_admin_car.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202503111342103_mig_admin_user_id.cs" />
+    <Compile Include="Migrations\202503111342103_mig_admin_user_id.Designer.cs">
+      <DependentUpon>202503111342103_mig_admin_user_id.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -102,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202503110057524_add_mig_admin_car.resx">
       <DependentUpon>202503110057524_add_mig_admin_car.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202503111342103_mig_admin_user_id.resx">
+      <DependentUpon>202503111342103_mig_admin_user_id.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

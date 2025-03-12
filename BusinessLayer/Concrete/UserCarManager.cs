@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
 using DataAccsessLayer.Abstract;
 using EntityLayer.Concrete;
 using System.Collections.Generic;
@@ -12,6 +13,11 @@ namespace BusinessLayer.Concrete
         public UserCarManager(IUserCarDal userCarDal)
         {
             _userCarDal = userCarDal;
+        }
+
+        public List<UserCar> GetByCarID(int carID)
+        {
+            return _userCarDal.List(x => x.CarID == carID);
         }
 
         public UserCar GetByID(int id)

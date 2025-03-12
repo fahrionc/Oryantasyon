@@ -15,5 +15,9 @@ namespace EntityLayer.Concrete
         public string CarName { get; set; }
         [StringLength(30)]
         public string CarPlate { get; set; }
+
+        // Navigation Property
+        public ICollection<UserCar> UserCars { get; set; }
     }
+
 }
