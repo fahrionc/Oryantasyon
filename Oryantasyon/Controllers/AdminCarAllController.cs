@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Concrete;
+﻿using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
 using DataAccsessLayer.EntityFramework;
 using EntityLayer.Concrete;
@@ -39,6 +40,7 @@ namespace Oryantasyon.Controllers
             ValidationResult results = carValidator.Validate(p);
             if (results.IsValid)
             {
+                p.Date = DateTime.Now;
                 cm.CarAdd(p);
                 return RedirectToAction("GetCarList");
             }
@@ -70,6 +72,41 @@ namespace Oryantasyon.Controllers
             p.IsActive = true;
             cm.CarUpdate(p);
             return RedirectToAction("GetCarList");
+        }
+        public ActionResult ActiveUsageChart()
+        {
+            return View();
+        }
+
+        public ActionResult IdleTimeChart()
+        {
+            return View();
+        }
+        public ActionResult GetActiveWorkTimeData()
+        {
+            var carvalues = cm.GetList();
+            var activeWorkTimeData = carvalues.Select(car => new
+            {
+                car.CarName,
+                ActiveWorkTimePercentage = car.ActiveWorkTime.HasValue ?
+                ((car.ActiveWorkTime.Value / (car.ActiveWorkTime.Value + (car.IdleTime ?? 0))) * 100) : 0
+            }).ToList();
+
+            return Json(activeWorkTimeData, JsonRequestBehavior.AllowGet);
+        }
+
+        // Bu aksiyon, boşta bekleme süresinin yüzdesini hesaplar
+        public ActionResult GetIdleTimeData()
+        {
+            var carvalues = cm.GetList();
+            var idleTimeData = carvalues.Select(car => new
+            {
+                car.CarName,
+                IdleTimePercentage = car.IdleTime.HasValue ?
+                ((car.IdleTime.Value / (car.ActiveWorkTime.Value + (car.IdleTime ?? 0))) * 100) : 0
+            }).ToList();
+
+            return Json(idleTimeData, JsonRequestBehavior.AllowGet);
         }
     }
 }

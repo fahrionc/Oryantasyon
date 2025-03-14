@@ -11,7 +11,6 @@ namespace BusinessLayer.Abstract
     {
         List<Car> GetList();
         List<Car> GetActiveList();
-
         void CarAdd(Car car);
         Car GetByID(int id);
         void CarDelete(Car car);

@@ -13,6 +13,10 @@
             <th>#</th>
             <th>Araç Adı</th>
             <th>Araç Plakası</th>
+            <th>Aktif Çalışma Süresi(sa)</th>
+            <th>Bakım Süresi(sa)</th>
+            <th>Boşta Bekleme Süresi(sa)</th>
+            <th>Tarih</th>
 
         </tr>
         @foreach (var item in Model)
@@ -21,6 +25,10 @@
                 <th>@item.CarID</th>
                 <td>@item.CarName</td>
                 <td>@item.CarPlate</td>
+                <td>@item.ActiveWorkTime</td>
+                <td>@item.MaintenanceTime</td>
+                <td>@item.IdleTime</td>
+                <td>@item.Date</td>
             </tr>
         }
     </table>

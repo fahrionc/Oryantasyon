@@ -1,0 +1,113 @@
+﻿@{
+    ViewBag.Title = "Aktif Çalışma Süresi Grafiği";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="@Url.Content("~/AdminTheme/plugins/fontawesome-free/css/all.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/AdminTheme/dist/css/adminlte.min.css")">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <style>
+        canvas {
+            width: 100% !important;
+            height: auto !important;
+        }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini">
+    <section class="content-header">
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="text-center">Aktif Çalışma Süresi Grafikleri</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="d-flex justify-content-center align-items-center content mt-5">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="col-md-10">
+                    <div class="card card-success">
+                        <div class="card-header">
+                            <h3 class="card-title">Aktif Çalışma Süresi</h3>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="stackedBarChart1" style="min-height: 250px;"></canvas>
+                            <p id="chartError" class="text-center text-danger" style="display: none;">Grafik için veri bulunamadı.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="@Url.Content("~/AdminTheme/plugins/jquery/jquery.min.js")"></script>
+    <script src="@Url.Content("~/AdminTheme/plugins/bootstrap/js/bootstrap.bundle.min.js")"></script>
+    <script src="@Url.Content("~/AdminTheme/plugins/chart.js/Chart.min.js")"></script>
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON('@Url.Action("GetActiveWorkTimeData", "AdminCarAll")')
+                .done(function (data) {
+                    if (!data || data.length === 0) {
+                        console.error("Grafik için veri bulunamadı.");
+                        $("#stackedBarChart1").hide();
+                        $("#chartError").show();
+                        return;
+                    }
+
+                    var carNames = data.map(item => item.CarName);
+                    var activeWorkTimePercentages = data.map(item => item.ActiveWorkTimePercentage);
+
+                    var ctx = document.getElementById('stackedBarChart1').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: carNames,
+                            datasets: [{
+                                label: 'Aktif Çalışma Süresi (%)',
+                                data: activeWorkTimePercentages,
+                                backgroundColor: '#4CAF50',
+                                borderColor: '#4CAF50',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,  // Y eksenini sıfırdan başlatır
+                                    min: 0,            // Y ekseninin minimum değeri sıfır
+                                    max: 100,          // Y ekseninin maksimum değeri 100
+                                    ticks: {
+                                        stepSize: 10,  // Y ekseninin her bir adım büyüklüğü
+                                        callback: function (value) {
+                                            return value + '%';  // Y eksenindeki değeri yüzde olarak göster
+                                        }
+                                    },
+                                    grid: {
+                                        display: true,
+                                        drawBorder: true
+                                    }
+                                }
+                            }
+                        }
+                    });
+                })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    console.error("Veri alınırken hata oluştu: ", textStatus, errorThrown);
+                    $("#stackedBarChart1").hide();
+                    $("#chartError").text("Grafik yüklenirken hata oluştu. Lütfen daha sonra tekrar deneyin.").show();
+                });
+        });
+    </script>
+
+</body>
+</html>

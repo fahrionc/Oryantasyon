@@ -89,6 +89,22 @@
     <Compile Include="Migrations\202503121211322_delete.Designer.cs">
       <DependentUpon>202503121211322_delete.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202503132233559_mig_date.cs" />
+    <Compile Include="Migrations\202503132233559_mig_date.Designer.cs">
+      <DependentUpon>202503132233559_mig_date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202503132318579_mig_datee.cs" />
+    <Compile Include="Migrations\202503132318579_mig_datee.Designer.cs">
+      <DependentUpon>202503132318579_mig_datee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202503132326101_mig_dateee.cs" />
+    <Compile Include="Migrations\202503132326101_mig_dateee.Designer.cs">
+      <DependentUpon>202503132326101_mig_dateee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202503140107347_UpdateCarDateNullable.cs" />
+    <Compile Include="Migrations\202503140107347_UpdateCarDateNullable.Designer.cs">
+      <DependentUpon>202503140107347_UpdateCarDateNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -126,6 +142,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202503121211322_delete.resx">
       <DependentUpon>202503121211322_delete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202503132233559_mig_date.resx">
+      <DependentUpon>202503132233559_mig_date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202503132318579_mig_datee.resx">
+      <DependentUpon>202503132318579_mig_datee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202503132326101_mig_dateee.resx">
+      <DependentUpon>202503132326101_mig_dateee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202503140107347_UpdateCarDateNullable.resx">
+      <DependentUpon>202503140107347_UpdateCarDateNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Admin Paneli</title>
+    <title>User Paneli</title>
     <link rel="stylesheet" href="~/AdminTheme/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="~/AdminTheme/dist/css/adminlte.min.css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
@@ -18,13 +18,13 @@
             <div class="sidebar">
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="info">
-                        <a href="#" class=" d-block ml-5">Control Panel</a>
+                        <a href="#" class=" d-block ml-4">User Control Panel</a>
                     </div>
                 </div>
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item has-treeview">
-                            <a href="@Url.Action("Index", "AdminCar")" class="nav-link">
+                            <a href="@Url.Action("UserCarGetList", "UserCar")" class="nav-link">
                                 <i class="nav-icon fas fa-car"></i>
                                 <p>
                                     Araçlar
@@ -32,7 +32,7 @@
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="@Url.Action("Index", "AdminCar")" class="nav-link">
+                            <a href="#" class="nav-link">
 
                                 <i class="nav-icon fas fa-chart-pie"></i>
                                 <p>
@@ -42,70 +42,21 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="~/AdminTheme/pages/charts/chartjs.html" class="nav-link">
+                                    <a href="@Url.Action("ActiveUsageChart", "UserCar")" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Aktif Çalışma</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="~/AdminTheme/pages/charts/flot.html" class="nav-link">
+                                    <a href="@Url.Action("IdleTimeChart", "UserCar")" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Boşta Bekleme</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        @*@if (User.IsInRole("A"))
-                            {*@
                         <li class="nav-item has-treeview">
-                            <a href="@Url.Action("GetCarList", "AdminCar")" class="nav-link">
-
-                                <i class="nav-icon fas fa-table"></i>
-                                <p>
-                                    Tablolar
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item has-treeview">
-                            <a href="@Url.Action("Index", "AdminCar")" class="nav-link">
-
-                                <i class="nav-icon fas fa-edit"></i>
-                                <p>
-                                    Kullanıcılar
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item has-treeview">
-                            <a href="@Url.Action("Index", "AdminCar")" class="nav-link">
-
-                                <i class="nav-icon fas fa-user"></i>
-                                <p>
-                                    Admin
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="@Url.Action("Index", "AdminCar")" class="nav-link">
-
-                                <i class="nav-icon fas fa-unlock"></i>
-                                <p>
-                                    Yetkilendirme
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="@Url.Action("Page404", "ErrorPage")" class="nav-link">
-                                <i class="nav-icon fas fa-not-equal"></i>
-                                <p>
-                                    Hata Sayfaları
-                                </p>
-                            </a>
-                        </li>
-                        @*}*@
-                        <li class="nav-item has-treeview">
-                            <a href="@Url.Action("Index", "AdminCar")" class="nav-link">
+                            <a href="@Url.Action("Index", "UserCar")" class="nav-link">
                                 <i class="nav-icon fas fa-door-closed"></i>
                                 <p>
                                     Çıkış Yap

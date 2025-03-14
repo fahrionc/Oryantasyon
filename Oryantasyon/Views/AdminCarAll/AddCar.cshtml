@@ -19,8 +19,7 @@
             @Html.TextBoxFor(x => x.CarPlate, new { @class = "form-control" })
             @Html.ValidationMessageFor(x => x.CarPlate)
 
-
-
+            <input type="hidden" name="Date" value="" />
             <input type="hidden" name="ActiveWorkTime" value="1" />
             <input type="hidden" name="MaintenanceTime" value="1" />
             <input type="hidden" name="IdleTime" value="1" />
@@ -32,4 +31,12 @@
         </div>
     }
 </div>
+<script>
+    // Sayfa yüklendiğinde tarih değerini al ve "Date" hidden alanına ata
+    document.addEventListener("DOMContentLoaded", function() {
+        var currentDate = new Date(); // Şu anki tarihi al
+        var dateString = currentDate.toISOString(); // ISO formatında tarih stringi oluştur
+        document.getElementById("Date").value = dateString; // Date hidden input'ına ata
+    });
+</script>
 

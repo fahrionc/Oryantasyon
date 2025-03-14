@@ -48,7 +48,7 @@ namespace Oryantasyon.Controllers
             {
                 FormsAuthentication.SetAuthCookie(userinfo.UserName, false);
                 Session["UserName"] = userinfo.UserName;
-                return RedirectToAction("Index", "User");
+                return RedirectToAction("UserCarGetList", "UserCar");
             }
             else
             {

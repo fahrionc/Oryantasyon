@@ -17,8 +17,7 @@ namespace EntityLayer.Concrete
 
         [StringLength(30)]
         public string CarPlate { get; set; } // Nullable olur
-
-
+        public DateTime? Date { get; set; }
         public double? ActiveWorkTime { get; set; } // Nullable
         public double? MaintenanceTime { get; set; } // Nullable
         public double? IdleTime { get; set; } // Nullable

@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 <div class="container">
-    <h1 class="pt-3 pl-3">Araç Güncelleme Sayfası</h1>
+    <h1 class="d-flex justify-content-center align-items-center pt-3">Araç Güncelleme Sayfası</h1>
     <br />
     @using (Html.BeginForm("UserCarEdit", "UserCar", FormMethod.Post))
     {
@@ -38,3 +38,11 @@
         </div>
     }
 </div>
+<script>
+    // Sayfa yüklendiğinde tarih değerini al ve "Date" hidden alanına ata
+    document.addEventListener("DOMContentLoaded", function() {
+        var currentDate = new Date(); // Şu anki tarihi al
+        var dateString = currentDate.toISOString(); // ISO formatında tarih stringi oluştur
+        document.getElementById("Date").value = dateString; // Date hidden input'ına ata
+    });
+</script>
