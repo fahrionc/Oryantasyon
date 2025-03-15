@@ -1,6 +1,7 @@
-﻿@{
-    ViewBag.Title = "Boşta Bekleme Süresi Grafiği";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+﻿
+@{
+    ViewBag.Title = "UserIdleTimeChart";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 <!DOCTYPE html>
 <html lang="tr">
@@ -20,9 +21,11 @@
     </style>
 </head>
 <body class="hold-transition sidebar-mini">
-    <section class="d-flex justify-content-center align-items-center content mt-5">
+    <section class="content">
         <div class="container-fluid">
-            <div class="d-flex justify-content-center align-items-center">
+            <br />
+            <br />
+            <div class="d-flex justify-content-center align-items-center ">
                 <div class="col-md-10">
                     <div class="card card-success">
                         <div class="card-header">
@@ -42,7 +45,7 @@
     <script src="@Url.Content("~/AdminTheme/plugins/chart.js/Chart.min.js")"></script>
     <script>
         $(document).ready(function () {
-            $.getJSON('@Url.Action("GetIdleTimeData", "AdminCarAll")')
+            $.getJSON('@Url.Action("GetIdleTimeData", "UserCar")')
                 .done(function (data) {
                     if (!data || data.length === 0) {
                         console.error("Grafik için veri bulunamadı.");
@@ -98,3 +101,5 @@
     </script>
 </body>
 </html>
+
+

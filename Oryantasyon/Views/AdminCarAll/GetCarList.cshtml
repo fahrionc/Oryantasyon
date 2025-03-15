@@ -7,38 +7,51 @@
 }
 
 <link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
-<div class="container">
-    <h3 class="d-flex justify-content-center align-items-center pt-3">Araç Bilgileri Listesi</h3>
-    <br />
-    <table class="table table-bordered table-hover">
-        <tr class="text-center">
-            <th>#</th>
-            <th>Araç Adı</th>
-            <th>Araç Plakası</th>
-            <th>Aktif Çalışma Süresi(sa)</th>
-            <th>Bakım Süresi(sa)</th>
-            <th>Boşta Bekleme Süresi(sa)</th>
-            <th>Tarih</th>
-            <th>Araç Sil</th>
-            <th>Araç Güncelle</th>
 
-        </tr>
-        @foreach (var item in Model)
-        {
-            count++;
-            <tr class="text-center">
-                <th>@count</th>
-                <td>@item.CarName</td>
-                <td>@item.CarPlate</td>
-                <td>@item.ActiveWorkTime</td>
-                <td>@item.MaintenanceTime</td>
-                <td>@item.IdleTime</td>
-                <td>@item.Date</td>
-                <td><a href="/AdminCarAll/DeleteCar/@item.CarID" class="btn btn-danger">Sil</a></td>
-                <td><a href="/AdminCarAll/EditCar/@item.CarID" class="btn btn-primary">Güncelle</a></td>
-            </tr>
-        }
-    </table>
-    <a href="/AdminCarAll/AddCar/" class="btn btn-success">Yeni Araç Ekle</a>
-</div>
+<section class="d-flex justify-content-center align-items-center content mt-5">
+    <div class="container-fluid">
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="col-md-10">
+
+                <div class="container">
+                    <h3 class="d-flex justify-content-center align-items-center pt-3">Araç Bilgileri Listesi</h3>
+                    <br />
+                    <table class="table table-bordered table-hover">
+                        <tr class="text-center">
+                            <th>#</th>
+                            <th>Araç Adı</th>
+                            <th>Araç Plakası</th>
+                            <th>Aktif Çalışma Süresi(sa)</th>
+                            <th>Bakım Süresi(sa)</th>
+                            <th>Boşta Bekleme Süresi(sa)</th>
+                            <th>Tarih</th>
+                            <th>Araç Sil</th>
+                            <th>Araç Güncelle</th>
+
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr class="text-center">
+                                <th>@count</th>
+                                <td>@item.CarName</td>
+                                <td>@item.CarPlate</td>
+                                <td>@item.ActiveWorkTime</td>
+                                <td>@item.MaintenanceTime</td>
+                                <td>@item.IdleTime</td>
+                                <td>@item.Date</td>
+                                <td><a href="/AdminCarAll/DeleteCar/@item.CarID" class="btn btn-danger">Sil</a></td>
+                                <td><a href="/AdminCarAll/EditCar/@item.CarID" class="btn btn-primary">Güncelle</a></td>
+                            </tr>
+                        }
+                    </table>
+                    <a href="/AdminCarAll/AddCar/" class="btn btn-success">Yeni Araç Ekle</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
 

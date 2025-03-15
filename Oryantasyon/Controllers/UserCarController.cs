@@ -35,7 +35,41 @@ namespace Oryantasyon.Controllers
             carmanager.CarUpdate(p);
             return RedirectToAction("UserCarGetList");
         }
+        public ActionResult UserActiveUsageChart()
+        {
+            return View();
+        }
 
+        public ActionResult UserIdleTimeChart()
+        {
+            return View();
+        }
+        public ActionResult GetActiveWorkTimeData()
+        {
+            var carvalues = carmanager.GetList();
+            var activeWorkTimeData = carvalues.Select(car => new
+            {
+                car.CarName,
+                ActiveWorkTimePercentage = car.ActiveWorkTime.HasValue ?
+                ((car.ActiveWorkTime.Value / (car.ActiveWorkTime.Value + (car.IdleTime ?? 0))) * 100) : 0
+            }).ToList();
+
+            return Json(activeWorkTimeData, JsonRequestBehavior.AllowGet);
+        }
+
+        // Bu aksiyon, boşta bekleme süresinin yüzdesini hesaplar
+        public ActionResult GetIdleTimeData()
+        {
+            var carvalues = carmanager.GetList();
+            var idleTimeData = carvalues.Select(car => new
+            {
+                car.CarName,
+                IdleTimePercentage = car.IdleTime.HasValue ?
+                ((car.IdleTime.Value / (car.ActiveWorkTime.Value + (car.IdleTime ?? 0))) * 100) : 0
+            }).ToList();
+
+            return Json(idleTimeData, JsonRequestBehavior.AllowGet);
+        }
 
     }
 }
