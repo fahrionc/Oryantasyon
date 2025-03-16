@@ -94,8 +94,6 @@ namespace Oryantasyon.Controllers
 
             return Json(activeWorkTimeData, JsonRequestBehavior.AllowGet);
         }
-
-        // Bu aksiyon, boşta bekleme süresinin yüzdesini hesaplar
         public ActionResult GetIdleTimeData()
         {
             var carvalues = cm.GetList();

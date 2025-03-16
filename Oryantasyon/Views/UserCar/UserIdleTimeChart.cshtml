@@ -64,8 +64,8 @@
                             datasets: [{
                                 label: 'Boşta Bekleme Süresi (%)',
                                 data: idleTimePercentages,
-                                backgroundColor: '#FF5733', // Kırmızımsı turuncu renk
-                                borderColor: '#FF5733',
+                                backgroundColor: '#E52020',
+                                borderColor: '#E52020',
                                 borderWidth: 1
                             }]
                         },
@@ -74,13 +74,13 @@
                             maintainAspectRatio: false,
                             scales: {
                                 y: {
-                                    beginAtZero: true,  // Y eksenini sıfırdan başlatır
-                                    min: 0,            // Y ekseninin minimum değeri sıfır
-                                    max: 100,          // Y ekseninin maksimum değeri 100
+                                    beginAtZero: true, 
+                                    min: 0,            
+                                    max: 100,   
                                     ticks: {
-                                        stepSize: 10,  // Y ekseninin her bir adım büyüklüğü
+                                        stepSize: 10, 
                                         callback: function (value) {
-                                            return value + '%';  // Y eksenindeki değeri yüzde olarak göster
+                                            return value + '%'; 
                                         }
                                     },
                                     grid: {

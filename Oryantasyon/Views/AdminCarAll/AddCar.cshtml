@@ -27,16 +27,15 @@
 
 
             <br /><br />
-            <button class="btn btn-success">Kaydet</button>
+            <button  class="btn btn-success">Kaydet</button>
         </div>
     }
 </div>
 <script>
-    // Sayfa yüklendiğinde tarih değerini al ve "Date" hidden alanına ata
     document.addEventListener("DOMContentLoaded", function() {
-        var currentDate = new Date(); // Şu anki tarihi al
-        var dateString = currentDate.toISOString(); // ISO formatında tarih stringi oluştur
-        document.getElementById("Date").value = dateString; // Date hidden input'ına ata
+        var currentDate = new Date();
+        var dateString = currentDate.toISOString();
+        document.getElementById("Date").value = dateString;
     });
 </script>
 

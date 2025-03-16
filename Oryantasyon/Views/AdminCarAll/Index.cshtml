@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
 }
 <link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
 <div class="container">
@@ -21,8 +22,9 @@
         </tr>
         @foreach (var item in Model)
         {
+            count++;
             <tr class="text-center">
-                <th>@item.CarID</th>
+                <th>@count</th>
                 <td>@item.CarName</td>
                 <td>@item.CarPlate</td>
                 <td>@item.ActiveWorkTime</td>

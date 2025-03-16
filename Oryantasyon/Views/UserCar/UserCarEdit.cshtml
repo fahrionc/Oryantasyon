@@ -16,7 +16,7 @@
             @Html.Label("Araç Adı")
             @Html.TextBoxFor(x => x.CarName, new { @class = "form-control", @readonly = "readonly" })
             <br />
-            
+
             @Html.Label("Araç Plaka")
             @Html.TextBoxFor(x => x.CarPlate, new { @class = "form-control", @readonly = "readonly" })
             <br />
@@ -32,6 +32,9 @@
             @Html.Label("Boşta Bekleme Süresi (sa)")
             @Html.TextBoxFor(x => x.IdleTime, new { @class = "form-control", id = "IdleTime", @readonly = "readonly" })
             <br />
+            @Html.Label("Tarih")
+            @Html.TextBoxFor(x => x.Date, new { @class = "form-control", id = "Date", @readonly = "readonly" })
+            <br />
 
 
             <button class="btn btn-success">Güncelle</button>
@@ -39,10 +42,9 @@
     }
 </div>
 <script>
-    // Sayfa yüklendiğinde tarih değerini al ve "Date" hidden alanına ata
-    document.addEventListener("DOMContentLoaded", function() {
-        var currentDate = new Date(); // Şu anki tarihi al
-        var dateString = currentDate.toISOString(); // ISO formatında tarih stringi oluştur
-        document.getElementById("Date").value = dateString; // Date hidden input'ına ata
+    document.addEventListener("DOMContentLoaded", function () {
+        var currentDate = new Date(); 
+        var dateString = currentDate.toISOString(); 
+        document.getElementById("Date").value = dateString; 
     });
 </script>

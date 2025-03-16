@@ -11,9 +11,9 @@ using System.Web.Mvc;
 
 namespace Oryantasyon.Controllers
 {
+    [Authorize]
     public class UserCarController : Controller
     {
-        // GET: UserCar
         CarManager carmanager = new CarManager(new EfCarDal());
 
         public ActionResult UserCarGetList()
@@ -57,7 +57,6 @@ namespace Oryantasyon.Controllers
             return Json(activeWorkTimeData, JsonRequestBehavior.AllowGet);
         }
 
-        // Bu aksiyon, boşta bekleme süresinin yüzdesini hesaplar
         public ActionResult GetIdleTimeData()
         {
             var carvalues = carmanager.GetList();

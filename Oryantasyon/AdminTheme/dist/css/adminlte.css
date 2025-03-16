@@ -15910,7 +15910,7 @@ textarea.form-control.is-warning {
 }
 
 .card-success:not(.card-outline) > .card-header {
-  background-color: #28a745;
+  background-color: #343a40;
 }
 
 .card-success:not(.card-outline) > .card-header,
@@ -17259,7 +17259,7 @@ textarea.form-control.is-warning {
 }
 
 .card-green:not(.card-outline) > .card-header {
-  background-color: #28a745;
+  background-color: #343a40;
 }
 
 .card-green:not(.card-outline) > .card-header,

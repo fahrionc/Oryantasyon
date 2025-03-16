@@ -19,6 +19,7 @@
             <th>Aktif Çalışma Süresi(sa)</th>
             <th>Bakım Süresi(sa)</th>
             <th>Boşta Bekleme Süresi(sa)</th>
+            <th>Tarih</th>
             <th>Araç Güncelle</th>
         </tr>
         @foreach (var item in Model)
@@ -31,6 +32,7 @@
                 <td>@item.ActiveWorkTime</td>
                 <td>@item.MaintenanceTime</td>
                 <td>@item.IdleTime</td>
+                <td>@item.Date</td>
                 <td><a href="/UserCar/UserCarEdit/@item.CarID" class="btn btn-primary">Güncelle</a></td>
             </tr>
         }

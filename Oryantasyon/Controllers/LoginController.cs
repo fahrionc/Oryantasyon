@@ -55,5 +55,22 @@ namespace Oryantasyon.Controllers
                 return RedirectToAction("UserLogin");
             }
         }
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            Session.Clear();
+            Session.Abandon();
+            Response.Cookies.Add(new HttpCookie("lgcm1snvfwuiy0t51mkjvxvy", ""));
+            Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, ""));
+
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetNoStore();
+
+            return RedirectToAction("Index", "Home");
+        }
+        public ActionResult UserLogout()
+        {
+            return Logout();
+        }
     }
 }

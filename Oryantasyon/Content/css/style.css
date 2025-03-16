@@ -18,3 +18,38 @@ select,
 textarea {
     max-width: 280px;
 }
+body {
+    background: url('../../Content/image/car2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.col-md-6 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    color: white;
+}
+
+.btn-dark {
+    font-weight: bolder;
+    width: 150px;
+    font-size: 18px;
+    padding: 10px;
+}
+
+h4 {
+    color: black;
+}

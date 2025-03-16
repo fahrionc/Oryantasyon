@@ -21,15 +21,6 @@
     </style>
 </head>
 <body class="hold-transition sidebar-mini">
-    <section class="content-header">
-        <div class="container-fluid mt-5">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h1 class="text-center">Aktif Çalışma Süresi Grafikleri</h1>
-                </div>
-            </div>
-        </div>
-    </section>
     <section class="d-flex justify-content-center align-items-center content mt-5">
         <div class="container-fluid">
             <div class="d-flex justify-content-center align-items-center">
@@ -74,8 +65,8 @@
                             datasets: [{
                                 label: 'Aktif Çalışma Süresi (%)',
                                 data: activeWorkTimePercentages,
-                                backgroundColor: '#4CAF50',
-                                borderColor: '#4CAF50',
+                                backgroundColor: '#537FE7',
+                                borderColor: '#537FE7',
                                 borderWidth: 1
                             }]
                         },
@@ -84,13 +75,13 @@
                             maintainAspectRatio: false,
                             scales: {
                                 y: {
-                                    beginAtZero: true,  // Y eksenini sıfırdan başlatır
-                                    min: 0,            // Y ekseninin minimum değeri sıfır
-                                    max: 100,          // Y ekseninin maksimum değeri 100
+                                    beginAtZero: true,
+                                    min: 0,
+                                    max: 100,
                                     ticks: {
-                                        stepSize: 10,  // Y ekseninin her bir adım büyüklüğü
+                                        stepSize: 10,
                                         callback: function (value) {
-                                            return value + '%';  // Y eksenindeki değeri yüzde olarak göster
+                                            return value + '%';
                                         }
                                     },
                                     grid: {

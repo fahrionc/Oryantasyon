@@ -138,8 +138,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminCarAllController.cs" />
-    <Compile Include="Controllers\ChartController.cs" />
-    <Compile Include="Controllers\ErrorPageController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\UserCarController.cs" />
     <Compile Include="Global.asax.cs">
@@ -2002,6 +2001,11 @@
     <Content Include="Content\error-404\index.html" />
     <Content Include="Content\error-404\readme.txt" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\image\car5.jpg" />
+    <Content Include="Content\image\car1.jpg" />
+    <Content Include="Content\image\car2.jpg" />
+    <Content Include="Content\image\car3.jpg" />
+    <Content Include="Content\image\car4.jpg" />
     <Content Include="Content\login_v3\css\bootstrap.min.css" />
     <Content Include="Content\login_v3\css\bootstrap\mixins\_border-radius.css" />
     <Content Include="Content\login_v3\css\bootstrap\mixins\_reset-text.css" />
@@ -2664,24 +2668,22 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\AdminCarAll\Index.cshtml" />
     <Content Include="Views\AdminCarAll\AddCar.cshtml" />
     <Content Include="Views\AdminCarAll\GetCarList.cshtml" />
     <Content Include="Views\AdminCarAll\EditCar.cshtml" />
-    <Content Include="Views\ErrorPage\Page404.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Login\UserLogin.cshtml" />
     <Content Include="Views\Shared\_UserLayout.cshtml" />
     <Content Include="Views\UserCar\UserCarGetList.cshtml" />
     <Content Include="Views\UserCar\UserCarEdit.cshtml" />
-    <Content Include="Views\Chart\Index.cshtml" />
     <Content Include="Views\AdminCarAll\ActiveUsageChart.cshtml" />
     <Content Include="Views\AdminCarAll\IdleTimeChart.cshtml" />
     <Content Include="Views\UserCar\UserActiveUsageChart.cshtml" />
     <Content Include="Views\UserCar\UserIdleTimeChart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
